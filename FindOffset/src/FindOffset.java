@@ -28,7 +28,38 @@ public class FindOffset {
 	
 	public static String OffsetFinder(String strin)
 	{
-		return null;
+		int pos = 0;
+		String strout = "";
+		char this_elem;
+		char last_elem;
+		int max_pos = strin.length();
+		int count = 1;
+		
+		last_elem = strin.charAt(pos);
+		for (pos = 1; pos < max_pos; pos++)
+		{
+			this_elem = strin.charAt(pos);
+			if (last_elem == this_elem)
+			{
+				count++;
+			}
+			else
+			{
+				if (count > 1)
+				{
+					strout = strout + String.valueOf(pos-count) + ", ";					
+				}
+				count = 1;
+			}
+			last_elem = this_elem;
+		}
+		
+		if (count > 1)
+		{
+			strout = strout + String.valueOf(pos-count) + ", ";					
+		}
+		
+		return strout;
 		
 	}
 
